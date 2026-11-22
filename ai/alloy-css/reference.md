@@ -1136,12 +1136,13 @@ Open a dropdown with a real <button>: a keyboard reaches it, and tabbing into th
 
 #### Full screen
 
-Full screen on focus (.fullscreen-on-focus, with the -sm suffix every responsive class uses: up to 768px wide). While focus is inside it, it takes the whole screen and the page behind stops scrolling; a .show-on-parent-focus inside it sits in the page instead of floating. On a wider screen it does nothing. The Search pattern is built this way.
+Full screen on focus (.fullscreen-on-focus, with the -sm suffix every responsive class uses: up to 768px wide). While focus is inside it, it takes the whole screen and the page behind stops scrolling; a .show-on-parent-focus inside it sits in the page instead of floating. On a wider screen it does nothing. The Search pattern is built this way. In a bar with no room for a field, .icon-until-focus (also with -sm) shows it as its icon alone until it is tapped.
 
 | Class | Goes on |
 |---|---|
 | .fullscreen-on-focus-sm | The element that opens, with tabindex="-1" so a click inside keeps it open. --fullscreen-padding sets its padding while open. |
 | .close-fullscreen | A <button> right before it, shown only while it is full screen. Pressing it moves focus out, which closes it. |
+| .icon-until-focus-sm | With .fullscreen-on-focus-sm, on a search in a bar with no room for a field: up to 768px it shows as its icon alone, 40px wide, at the end of its space, until a tap opens it full screen. |
 
 ### Opacity
 
@@ -1460,6 +1461,29 @@ On any other element, .toggle switches everything inside it: while any checkbox 
   <label class="switch"><input type="checkbox" aria-label="Yearly billing"><i></i></label>
   <span class="h4 font-weight-700 text-primary"><span class="show-when-off">$12</span><span class="show-when-on">$10</span> / month</span>
 </div>
+```
+
+A checkbox in a <label> inside the area, such as a close button, gets a focus ring on the label.
+
+#### Phone-only fold
+
+A section that folds to its heading on a phone and stays open on a wider screen, as on a mobile encyclopedia. The heading is a <label> for the area's checkbox; hide the checkbox above 768px, where it does nothing.
+
+| Class | Goes on |
+|---|---|
+| .show-when-on-sm | Up to 768px: shown only while the toggle is on, or while a link has jumped to something inside it (contents, a footnote). Above 768px: always shown. |
+
+```html
+<section class="toggle border-bottom border-subtle">
+  <h2 class="h5 font-weight-700 text-primary">
+    <label class="flex flex-items-center flex-justify-between padding-y-8">History
+      <input type="checkbox" class="visually-hidden hidden-sm-greater">
+      <i class="icon-24 material-icons text-secondary show-when-off hidden-sm-greater" aria-hidden="true">expand_more</i>
+      <i class="icon-24 material-icons text-secondary show-when-on hidden-sm-greater" aria-hidden="true">expand_less</i>
+    </label>
+  </h2>
+  <div class="show-when-on-sm padding-bottom-12 text-body-2 text-secondary">Resize to a phone width: this folds under its heading.</div>
+</section>
 ```
 
 ### Choice
@@ -1862,6 +1886,7 @@ A dropdown of recent searches on a wide screen; on a phone, the whole screen wit
 | .fullscreen-on-focus-sm | The search, with tabindex="-1" so a click in its panel keeps it open. On a phone it takes the screen while focus is inside it. |
 | .show-on-parent-focus | The panel, straight inside the search: shown while focus is inside it. |
 | .close-fullscreen | The back button, right before the search: shown only while it is full screen. Pressing it closes search. |
+| .icon-until-focus-sm | Optional, on the search: in a crowded header on a phone it shows as its icon alone until tapped. |
 
 ```html
 <div class="relative">

@@ -1097,6 +1097,17 @@ details[open] > summary .show-when-closed {
   border-radius: 4px;
 }
 
+:where(.toggle) label:has(> input[type=checkbox]:focus-visible) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .toggle:not(:has(input[type=checkbox]:checked, :target)) .show-when-on-sm {
+    display: none;
+  }
+}
 :not(:hover):not(:focus-within) > .show-on-parent-hover {
   display: none;
 }
@@ -1140,6 +1151,29 @@ details[open] > summary .show-when-closed {
   }
   :has(.fullscreen-on-focus-sm:focus-within) {
     z-index: 1000;
+  }
+}
+@media (max-width: 768px) {
+  .icon-until-focus-sm:not(:focus-within) {
+    width: 40px;
+    margin-left: auto;
+  }
+  .icon-until-focus-sm:not(:focus-within) input {
+    padding-right: 0;
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .icon-until-focus-sm:not(:focus-within) input::placeholder {
+    color: transparent;
+  }
+  .icon-until-focus-sm:not(:focus-within) span {
+    color: var(--color-text-secondary);
+  }
+}
+@media (max-width: 768px) and (hover: hover) {
+  .icon-until-focus-sm:not(:focus-within) input:hover {
+    background-color: var(--color-bg-surface);
   }
 }
 .table {

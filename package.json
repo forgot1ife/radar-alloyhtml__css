@@ -1,6 +1,6 @@
 {
   "name": "@alloyhtml/css",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A CSS kit for server-rendered apps: utilities, components and themes that work with JavaScript off.",
   "style": "dist/alloy.css",
   "files": [

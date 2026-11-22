@@ -41,3 +41,21 @@
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+// A checkbox in a <label> inside a toggle area (a close button, a section
+// heading): keyboard focus rings the label, as it does on a label toggle.
+:where(.toggle) label:has(> input[type="checkbox"]:focus-visible) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+// .show-when-on-sm: up to 768px it shows only while the toggle is on, or
+// while a link has jumped to something inside it (contents, a footnote);
+// on a wider screen it always shows. Sections that fold to their heading
+// on a phone and stay open on a desktop.
+@media (max-width: 768px) {
+  .toggle:not(:has(input[type="checkbox"]:checked, :target)) .show-when-on-sm {
+    display: none;
+  }
+}

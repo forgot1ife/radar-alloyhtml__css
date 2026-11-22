@@ -27,7 +27,10 @@ yet: a modal, a menu, tabs, a form field.
    are `bg-base` (the page), `bg-surface`, `bg-raised` (cards, dialogs),
    `bg-sunken`, `bg-inverse`. Text is `text-primary`, `text-secondary`,
    `text-muted`, `text-inverse`. Borders are `border-subtle`, `border-strong`.
-   These follow the theme. The brand is `primary-1`; red, green, orange and
+   These follow the theme. A fill must step off what it sits on: on the page
+   (`bg-base`) use `bg-surface` or `bg-raised`; on a card or a white page
+   (`bg-raised`) use `bg-base` or `bg-sunken`. `bg-surface` on `bg-raised`
+   is nearly invisible. The brand is `primary-1`; red, green, orange and
    the rest are for status. A tint is `-light-1`, text on a tint `-dark-1`.
 4. **No JavaScript for interactions.** A modal is a `<dialog>` opened with
    `commandfor` and `command="show-modal"`. A menu or drawer is a `popover`.
@@ -39,9 +42,11 @@ yet: a modal, a menu, tabs, a form field.
    has them; the reference says which.
 6. **One-offs go inline.** A size or position the kit doesn't have (a 420px
    panel, a 3/4 image ratio) goes in a `style` attribute. A colour, radius,
-   shadow or spacing never does: pick the nearest kit value. CSS of your own
+   shadow or spacing never does: pick the nearest kit value; a site's own
+   colour or font is a brand value (see Themes & Brands). CSS of your own
    is only for what inline can't do (a media query, `:hover` on a child,
-   `::before`), in the page's `<style>` block.
+   `::before`), in the page's `<style>` block, on elements and attributes,
+   never a new class.
 7. **No state classes.** There is no `.active`. A current link swaps
    utilities in the markup (`text-primary-1` instead of `text-secondary`)
    and carries `aria-current="page"`.

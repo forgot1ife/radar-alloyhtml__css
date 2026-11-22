@@ -66,3 +66,32 @@
     z-index: 1000;
   }
 }
+
+// .icon-until-focus-sm goes on the .fullscreen-on-focus-sm search in a bar
+// with no room for a field on a phone: up to 768px it shows as its icon
+// alone, 40px wide, at the end of the space it was given, until a tap opens
+// the full-screen search. On a wider screen it is the field as usual.
+@media (max-width: 768px) {
+  .icon-until-focus-sm:not(:focus-within) {
+    width: 40px;
+    margin-left: auto;
+  }
+  .icon-until-focus-sm:not(:focus-within) input {
+    padding-right: 0;
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .icon-until-focus-sm:not(:focus-within) input::placeholder {
+    color: transparent;
+  }
+  .icon-until-focus-sm:not(:focus-within) span {
+    color: var(--color-text-secondary);
+  }
+}
+// Folded, it looks like the icon buttons beside it: a soft fill on hover.
+@media (max-width: 768px) and (hover: hover) {
+  .icon-until-focus-sm:not(:focus-within) input:hover {
+    background-color: var(--color-bg-surface);
+  }
+}
