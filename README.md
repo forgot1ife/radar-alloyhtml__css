@@ -10,6 +10,10 @@ That's [example.html](example.html): one HTML file, this stylesheet, no
 script. **[Open it live](https://alloyhtml.com/example.html)**, use it, then
 view its source.
 
+Or watch the whole idea in a minute and a half, with captions:
+
+[![Every menu needs a library? The opening of the Alloy CSS video](https://alloyhtml.com/video/alloy-css.jpg)](https://alloyhtml.com/video/alloy-css.mp4)
+
 Dark mode is included: two dark themes, ready to link.
 
 The kit holds the structure: spacing, sizes, breakpoints and the parts. Your
