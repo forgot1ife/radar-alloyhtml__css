@@ -20,7 +20,11 @@ const SKIP_DIRS = new Set(['node_modules', '.git', 'vendor', 'dist', 'build', '.
 const args = process.argv.slice(2);
 const paths = [];
 const sheets = [join(dirname(fileURLToPath(import.meta.url)), '../dist/alloy.css')];
-const allowed = new Set();
+// Google's Material icon font, which the docs and example.html load for
+// icons: its classes come from the font's own stylesheet, so they count as
+// known. Without this, the kit's own example failed its first check.
+const allowed = new Set(['material-icons', 'material-icons-outlined', 'material-icons-round', 'material-icons-sharp', 'material-icons-two-tone',
+  'material-symbols-outlined', 'material-symbols-rounded', 'material-symbols-sharp']);
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--css') sheets.push(args[++i]);
   else if (args[i] === '--allow') args[++i].split(',').forEach((name) => allowed.add(name.trim()));
